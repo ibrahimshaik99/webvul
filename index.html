@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Vulnerability Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-form {
+            margin-bottom: 20px;
+        }
+
+        .input-form label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .input-form input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 8px;
+            box-sizing: border-box;
+        }
+
+        .vuln-options {
+            margin-top: 30px;
+        }
+
+        .vuln-options h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        .scan-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .scan-button button {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .scan-button button:hover {
+            background-color: #0056b3;
+        }
+
+        .results {
+            margin-top: 40px;
+        }
+
+        .results h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .results #resultsContainer {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>WebVuln Scanner</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Scan Your Website for Vulnerabilities</h2>
+
+        <!-- URL input form -->
+        <div class="input-form">
+            <label for="url">Enter Website URL:</label>
+            <input type="url" id="url" placeholder="https://example.com" required>
+        </div>
+        <!-- Vulnerability selection -->
+        <div class="vuln-options">
+            <h3>Select Vulnerabilities to Scan:</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="sqli"> SQL Injection (SQLi)</label>
+                <label><input type="checkbox" id="xss"> Cross-Site Scripting (XSS)</label>
+                <label><input type="checkbox" id="csrf"> Cross-Site Request Forgery (CSRF)</label>
+                <label><input type="checkbox" id="ssrf"> Server-Side Request Forgery (SSRF)</label>
+                <label><input type="checkbox" id="auth-bypass"> Authentication Bypass</label>
+                <label><input type="checkbox" id="broken-auth"> Broken Authentication</label>
+                <label><input type="checkbox" id="idor"> Insecure Direct Object Reference (IDOR)</label>
+                <label><input type="checkbox" id="path-traversal"> Path Traversal</label>
+                <label><input type="checkbox" id="misconfig"> Misconfiguration</label>
+            </div>
+        </div>
+
+        <!-- Scan button -->
+        <div class="scan-button">
+            <button id="scanBtn">Start Vulnerability Scan</button>
+        </div>
+
+        <!-- Results -->
+        <div class="results">
+            <h3>Scan Results:</h3>
+            <div id="resultsContainer">
+                <p>Please enter a URL and select vulnerabilities to scan.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created for Educational Purposes - © 2025</p>
+    </footer>
+
+    <script>
+        document.getElementById("scanBtn").addEventListener("click", function () {
+            const url = document.getElementById("url").value;
+            if (!url) {
+                alert("Please enter a URL.");
+                return;
+            }
+
+            let vulnerabilities = [];
+            if (document.getElementById("sqli").checked) vulnerabilities.push("SQL Injection (SQLi)");
+            if (document.getElementById("xss").checked) vulnerabilities.push("Cross-Site Scripting (XSS)");
+            if (document.getElementById("csrf").checked) vulnerabilities.push("Cross-Site Request Forgery (CSRF)");
+            if (document.getElementById("ssrf").checked) vulnerabilities.push("Server-Side Request Forgery (SSRF)");
+            if (document.getElementById("auth-bypass").checked) vulnerabilities.push("Authentication Bypass");
+            if (document.getElementById("broken-auth").checked) vulnerabilities.push("Broken Authentication");
+            if (document.getElementById("idor").checked) vulnerabilities.push("Insecure Direct Object Reference (IDOR)");
+            if (document.getElementById("path-traversal").checked) vulnerabilities.push("Path Traversal");
+            if (document.getElementById("misconfig").checked) vulnerabilities.push("Misconfiguration");
+
+            if (vulnerabilities.length === 0) {
+                alert("Please select at least one vulnerability to scan.");
+                return;
+            }
+
+            // Placeholder result (the actual scan would be here with backend integration)
+            let resultText = `<h4>Scanning ${url} for the following vulnerabilities:</h4><ul>`;
+            vulnerabilities.forEach(vuln => {
+                resultText += `<li>${vuln}</li>`;
+            });
+            resultText += `</ul><p>Scan complete! (Results will be available once back-end scanning is integrated).</p>`;
+
+            document.getElementById("resultsContainer").innerHTML = resultText;
+        });
+    </script>
+
+</body>
+
+</html>

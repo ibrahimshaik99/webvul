@@ -1,0 +1,182 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FAF9F6; /* Light beige background */
+    margin: 0;
+    padding: 0;
+    color: #333333; /* Charcoal gray text */
+}
+
+h1, h2, h3, h4 {
+    color: #333333; /* Charcoal gray for all headings */
+}
+
+/* Header Styles */
+header {
+    background-color: #3A6B6B; /* Deep teal */
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333333;
+}
+
+/* Form & Input Styles */
+.input-form {
+    margin-bottom: 30px;
+}
+
+.input-form label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+}
+
+.input-form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-form input:focus {
+    border-color: #FF6F61; /* Soft coral color for focus state */
+    outline: none;
+}
+
+/* Vulnerability Selection */
+.vuln-options {
+    margin-bottom: 30px;
+}
+
+.vuln-options h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.checkbox-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+/* Scan Button */
+.scan-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.scan-button button {
+    background-color: #FF7F50; /* Soft orange button */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.scan-button button:hover {
+    background-color: #FF6F61; /* Soft coral on hover */
+    transform: translateY(-2px);
+}
+
+.scan-button button:active {
+    background-color: #FF7F50; /* Soft orange on click */
+    transform: translateY(0);
+}
+
+/* Results Section */
+.results {
+    margin-top: 40px;
+}
+
+.results h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+.results #resultsContainer {
+    background-color: #FFF3E2; /* Light peach background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.results ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.results ul li {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333333;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #3A6B6B; /* Deep teal */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .input-form input,
+    .scan-button button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .checkbox-group label {
+        font-size: 14px;
+    }
+}
